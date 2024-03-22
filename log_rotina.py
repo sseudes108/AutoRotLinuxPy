@@ -6,14 +6,15 @@
 import subprocess
 import os
 
+from auto_rot_lib import (get_log_path)
+
 
 def criar_log():
-    #Define os diretorios
-    home_dir = os.path.expanduser("~")
-    log_path = os.path.join(home_dir, "logs/")
+    #Define o diretorio principal
+    log_path = get_log_path()
 
     #Verifica o Log e acrescenta 1
-    log = ler_log(log_path) + 1
+    log = read_log(log_path) + 1
 
     #Modifica o log para o novo valor acrescido
     with open("{}log.txt".format(log_path), "w", encoding='utf-8') as log_file:
@@ -24,7 +25,8 @@ def criar_log():
     with open("{}log{}.txt".format(log_path, log), "w", encoding='utf-8') as new_log_file:
         subprocess.run(processo, stdout=new_log_file)
 
-def ler_log(log_path):
+
+def read_log(log_path):
     with open("{}log.txt".format(log_path), "r", encoding='utf-8') as log_file:
         log = log_file.read().strip()
         print("current log", log)
@@ -33,3 +35,4 @@ def ler_log(log_path):
 
 
 criar_log()
+
