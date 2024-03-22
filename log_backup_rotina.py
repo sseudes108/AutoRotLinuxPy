@@ -9,3 +9,4 @@ log_path = get_log_path()
 log_backup_path = get_backup_path()
 
 criar_backup(log_path, log_backup_path)
+
