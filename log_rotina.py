@@ -4,7 +4,6 @@
 ##########################################################
 
 import subprocess
-import os
 
 from auto_rot_lib import (get_log_path)
 
