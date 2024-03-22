@@ -1,11 +1,11 @@
-import subprocess
+#######################################################
+## Faz a copia de arquivos criados com log_rotina.py ##
+#######################################################
 
 from auto_rot_lib import get_log_path, get_backup_path
+from backup_rotina import criar_backup
 
-def criar_backup():
-    log_path = get_log_path()
-    backup_path = get_backup_path()
+log_path = get_log_path()
+log_backup_path = get_backup_path()
 
-    #pega os arquivos dentro do diretorio, nao o diretorio em si.
-    comando = ["cp", "{}*".format(log_path), backup_path]
-    subprocess.run(comando);
+criar_backup(log_path, log_backup_path)
