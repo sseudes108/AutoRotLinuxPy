@@ -28,4 +28,6 @@ def criar_backup(origem, destino):
     origem = origem.replace("/", "-")
     destino = destino.replace("/", "-")
 
-    catch_error(resultado, "backup_rotina-Origem{}|Destino{}".format(origem[1], destino[1]))
+    catch_error(resultado, "backup_rotina-Origem{}|Destino{}".format(origem, destino))
+
+
