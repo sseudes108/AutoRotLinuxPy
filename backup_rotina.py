@@ -18,9 +18,9 @@ def criar_backup(origem, destino):
     arquivos_em_origem = glob.glob(os.path.join(origem, "*"))
 
     #Monta o comando cp
-    comando = ["cpERRO", "-r"] + arquivos_em_origem + [destino]
+    comando = ["cp", "-rERR"] + arquivos_em_origem + [destino]
 
     print(comando)
-    resultado = subprocess.run(comando, capture_output=True, text=True)
+    resultado = subprocess.run(comando, stderr=subprocess.PIPE)
 
     catch_error(resultado, "backup_rotina.py / Origem: {} Destino {}".format(origem, destino))
