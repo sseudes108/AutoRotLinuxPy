@@ -2,7 +2,7 @@ import subprocess
 
 def upgrade_packages():
     # Comando para atualizar os pacotes usando apt upgrade
-    comando = "sudo apt upgrade -y"
+    comando = ["sudo", "apt", "upgrade", "-y"]
 
     # Executar o comando usando subprocess
     processo = subprocess.Popen(comando, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
