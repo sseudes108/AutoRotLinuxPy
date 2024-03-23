@@ -20,7 +20,7 @@ def criar_backup(origem, destino):
     #Monta o comando cp
     comando = ["cp", "-r", ["ufth999"]] + arquivos_em_origem + [destino]
 
-    print(comando)
+    # print(comando)
     resultado = subprocess.run(comando, stderr=subprocess.PIPE)
 
     catch_error(resultado, "backup_rotina-Origem{}-Destino{}".format(origem, destino))
