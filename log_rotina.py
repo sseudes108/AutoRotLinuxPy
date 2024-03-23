@@ -20,7 +20,7 @@ def criar_log():
         log_file.write("{}".format(log, end=""))
 
     #Busca e escreve o resultado sem passar pelo shell
-    processo = ["tailERRO", "-n", "10", "/var/log/syslog"]
+    processo = ["tail", "-nErr", "10", "/var/log/syslog"]
     with open("{}log{}.txt".format(log_path, log), "w", encoding='utf-8') as new_log_file:
         resultado = subprocess.run(processo, stdout=new_log_file)
         catch_error(resultado, "log_rotina.py")

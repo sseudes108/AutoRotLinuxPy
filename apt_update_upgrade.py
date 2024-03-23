@@ -10,7 +10,7 @@ def upgrade_packages():
                                 stderr=subprocess.PIPE)
 
     # Enviar "yes" para a entrada padrão (stdin)
-    stdout, stderr = resultado.communicate(input=b"yes\n")
+    resultado.communicate(input=b"yes\n")
 
     catch_error(resultado, "apt_update_upgrade")
 
