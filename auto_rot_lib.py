@@ -17,9 +17,8 @@ def get_erros_log_path():
 def get_backup_path():
     return os.path.join(get_home_dir(), "logs_backup/")
 
-
 def autoRotLinuxPy_repo():
-    return os.path.join(get_home_dir(), "AutoRotLinuxPy")
+    return "AutoRotLinuxPy"
 
 
 def catch_error(resultado, file_name):
