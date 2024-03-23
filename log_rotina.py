@@ -5,7 +5,8 @@
 
 import subprocess
 
-from auto_rot_lib import get_log_path
+from auto_rot_lib import get_log_path, catch_error
+
 
 def criar_log():
     #Define o diretorio principal
@@ -21,7 +22,8 @@ def criar_log():
     #Busca e escreve o resultado sem passar pelo shell
     processo = ["tail", "-n", "10", "/var/log/syslog"]
     with open("{}log{}.txt".format(log_path, log), "w", encoding='utf-8') as new_log_file:
-        subprocess.run(processo, stdout=new_log_file)
+        resultado = subprocess.run(processo, stdout=new_log_file)
+        catch_error(resultado, "log_rotina.py")
 
 
 def read_log(log_path):

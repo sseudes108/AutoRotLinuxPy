@@ -14,4 +14,3 @@ def run_command():
 
 # Chamar a função para executar o comando
 run_command()
-

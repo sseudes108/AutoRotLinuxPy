@@ -25,7 +25,7 @@ def catch_error(resultado, file_name):
         error_log_path = get_erros_log_path()
         data_hora = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
 
-        erro = "\n" + data_hora + "Erro: " + resultado.stderr
+        erro = data_hora + "\nErro: " + resultado.stderr
 
         with open("{}err-{}.txt".format(error_log_path, file_name), "w",
                   encoding="utf-8") as error_log:

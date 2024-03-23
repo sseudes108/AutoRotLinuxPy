@@ -10,6 +10,9 @@ import glob
 import os
 import subprocess
 
+from auto_rot_lib import catch_error
+
+
 def criar_backup(origem, destino):
     #Coleta todos os arquivos dentro do diretorio origem
     arquivos_em_origem = glob.glob(os.path.join(origem, "*"))
@@ -18,4 +21,6 @@ def criar_backup(origem, destino):
     comando = ["cp", "-r"] + arquivos_em_origem + [destino]
 
     print(comando)
-    subprocess.run(comando)
+    resultado = subprocess.run(comando)
+
+    catch_error(resultado, "backup_rotina.py / Origem: {} Destino {}".format(origem, destino))

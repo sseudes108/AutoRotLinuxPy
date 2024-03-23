@@ -2,7 +2,7 @@
 ## Automatiza o git pull dos diretorios designados               ##
 ## Os scripts podem ser atualizados pelo IDE com mais facilidade ##
 ###################################################################
-from auto_rot_lib import autoRotLinuxPy_repo
+from auto_rot_lib import autoRotLinuxPy_repo, catch_error
 
 import os
 import subprocess
@@ -20,7 +20,9 @@ def puxar_repos():
         subprocess.run(["git", "reset", "--hard"])
 
         #Executa o comando
-        subprocess.run(["git", "pull"])
+        resultado = subprocess.run(["git", "pull"])
+
+        catch_error(resultado, "git_pull_rotina.py / {}".format(repo))
 
 puxar_repos()
 
