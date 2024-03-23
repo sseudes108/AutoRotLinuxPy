@@ -11,8 +11,9 @@ log_backup_path = get_backup_path()
 
 origem = os.path.splitdrive(log_path)
 print(origem[1])
-destino = os.path.split(log_backup_path)
-print(destino)
+origem = origem[1].split(origem, "/")
+len(origem)
+print(origem[len(origem)])
 
 criar_backup(log_path, log_backup_path)
 
