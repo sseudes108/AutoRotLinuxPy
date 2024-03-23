@@ -5,7 +5,7 @@
 from auto_rot_lib import get_log_path, get_backup_path
 from backup_rotina import criar_backup
 
-log_path = get_log_path()
+log_path = get_log_path() + "88888"
 log_backup_path = get_backup_path()
 
 criar_backup(log_path, log_backup_path)
