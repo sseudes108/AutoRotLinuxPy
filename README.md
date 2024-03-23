@@ -8,6 +8,17 @@
 
 * **Identificação de Tarefas:** Liste as tarefas que podem ser automatizadas no ambiente Linux.
 
+    Backup de arquivos e diretórios.<br>
+    Limpeza de logs e arquivos temporários.<br>
+    Atualização do sistema.<br>
+    Monitoramento de recursos do sistema.<br>
+    Automação de tarefas de administração do sistema.<br>
+    Monitoramento e reinicialização de serviços.<br>
+    Geração de relatórios.<br>
+    Gerenciamento de arquivos de configuração.<br>
+    Integração de ferramentas de terceiros.<br>
+    Auditoria de segurança.<br>
+
 * **Desenvolvimento de Scripts:** Escreva scripts Python para automatizar cada tarefa, utilizando bibliotecas relevantes.
 
 * **Integração com Cron Jobs:** Agende a execução periódica dos scripts usando tarefas cron para automação contínua.
