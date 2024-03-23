@@ -10,7 +10,7 @@ log_path = get_log_path()
 log_backup_path = get_backup_path()
 
 origem = os.path.splitdrive(log_path)
-print(origem)
+print(origem[0])
 destino = os.path.split(log_backup_path)
 print(destino)
 
