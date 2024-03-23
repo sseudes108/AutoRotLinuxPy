@@ -25,7 +25,5 @@ def criar_backup(origem, destino):
 
     #Mensagem de erro
     origem = os.path.basename(origem)
-    print(origem)
     destino = os.path.basename(destino)
-    print(destino)
     catch_error(resultado, "backup_rotina-Origem{}-Destino{}".format(origem, destino))
