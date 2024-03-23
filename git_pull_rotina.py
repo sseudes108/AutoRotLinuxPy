@@ -14,3 +14,7 @@ def puxar_repos():
 
         comando = ["git pull"]
         subprocess.run(comando)
+
+
+puxar_repos()
+
