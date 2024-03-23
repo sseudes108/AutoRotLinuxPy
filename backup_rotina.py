@@ -21,6 +21,6 @@ def criar_backup(origem, destino):
     comando = ["cpERRO", "-r"] + arquivos_em_origem + [destino]
 
     print(comando)
-    resultado = subprocess.run(comando)
+    resultado = subprocess.run(comando, capture_output=True, text=True)
 
     catch_error(resultado, "backup_rotina.py / Origem: {} Destino {}".format(origem, destino))

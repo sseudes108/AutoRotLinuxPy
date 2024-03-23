@@ -17,11 +17,11 @@ def puxar_repos():
 
         # ATENÇÃO!! ELIMINA QUALQUER MUDANÇA NO REPO LOCAL!!
         # (MANTER AS MUDANÇAS E O PUSH NO IDE, NÃO NO SERVER !!)
-        resultado = subprocess.run(["git", "reset", "--hard"])
+        resultado = subprocess.run(["git", "reset", "--hard"], capture_output=True, text=True)
         catch_error(resultado, "git_pull_rotina.py / reset - {}".format(repo))
 
         #Executa o comando
-        resultado = subprocess.run(["gitERRO", "pull"])
+        resultado = subprocess.run(["gitERRO", "pull"], capture_output=True, text=True)
 
         catch_error(resultado, "git_pull_rotina.py / pull -  {}".format(repo))
 
