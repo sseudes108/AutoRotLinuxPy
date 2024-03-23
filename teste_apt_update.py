@@ -1,9 +1,5 @@
 import subprocess
-
-
-def catche_erro(resultado, param):
-    pass
-
+from auto_rot_lib import catch_error
 
 def upgrade_packages():
     # Comando para atualizar os pacotes usando apt upgrade
@@ -16,7 +12,7 @@ def upgrade_packages():
     # Enviar "yes" para a entrada padrão (stdin)
     stdout, stderr = resultado.communicate(input=b"yes\n")
 
-    catche_erro(resultado, "apt_update_upgrade")
+    catch_error(resultado, "apt_update_upgrade")
 
 # Chamar a função para atualizar os pacotes
 upgrade_packages()
