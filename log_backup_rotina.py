@@ -10,9 +10,9 @@ log_path = get_log_path()
 log_backup_path = get_backup_path()
 
 origem = os.path.basename(log_path)
-print(origem)
+print(log_path)
 destino = os.path.basename(log_backup_path)
-print(destino)
+print(log_backup_path)
 
 criar_backup(log_path, log_backup_path)
 
