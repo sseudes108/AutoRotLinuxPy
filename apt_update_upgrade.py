@@ -3,7 +3,7 @@ from auto_rot_lib import catch_error
 
 def upgrade_packages():
     # Comando para atualizar os pacotes usando apt upgrade
-    comando = ["sudo", "apt", "upgrade", "-y"]
+    comando = ["sudoERRO", "apt", "upgrade", "-y"]
 
     # Executar o comando usando subprocess
     resultado = subprocess.Popen(comando, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
