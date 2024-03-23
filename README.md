@@ -11,6 +11,7 @@
     Backup de arquivos e diretórios.<br>
     Limpeza de logs e arquivos temporários.<br>
     Atualização do sistema.<br>
+    Atualização de selecionados git repos<br>
     Monitoramento de recursos do sistema.<br>
     Automação de tarefas de administração do sistema.<br>
     Monitoramento e reinicialização de serviços.<br>

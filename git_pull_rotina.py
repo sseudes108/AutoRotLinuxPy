@@ -8,6 +8,7 @@ import os
 import subprocess
 
 def puxar_repos():
+    # definir novos repositorios em auto_rot_lib.py e adicionar à lista
     repositorios = [autoRotLinuxPy_repo()]
 
     for repo in repositorios:
@@ -15,7 +16,7 @@ def puxar_repos():
         os.chdir(repo)
 
         # ELIMINA QUALQUER MUDANÇA NO REPO LOCAL!!
-        # (LINUX - MANTER AS MUDANÇAS E O PUSH NO IDE !!!!)
+        # (MANTER AS MUDANÇAS E O PUSH NO IDE, NÃO NO SERVER !!!!)
         subprocess.run(["git", "reset", "--hard"])
 
         #Executa o comando
