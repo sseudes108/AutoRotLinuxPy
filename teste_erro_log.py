@@ -1,4 +1,5 @@
 import subprocess
+from auto_rot_lib import get_erros_log_path
 
 def run_command():
     # Comando a ser executado
@@ -11,6 +12,14 @@ def run_command():
     if resultado.returncode != 0:
         # Imprimir a saída de erro
         print("Erro:", resultado.stderr)
+        error_log_path = get_erros_log_path()
+
+        erro = "Erro: " + resultado.stderr
+
+        with open("{}error{}.txt".format(error_log_path, __file__), "w",
+                  encoding="utf-8") as error_log:
+            error_log.write(erro)
+
     else:
         # Imprimir a saída padrão (stdout)
         print("Saída:", resultado.stdout)
