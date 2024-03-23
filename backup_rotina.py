@@ -3,9 +3,15 @@
 ## nao copia o diretorio                                ##
 ##########################################################
 
-
+import glob
+import os
 import subprocess
 
 def criar_backup(target, destino):
-    comando = ["cp", "-rf", "{}*".format(target), destino]
+    #Cria devidamente a string para que o * seja reconhecido como wildcard
+    arquivos = glob.glob(os.path.join(target, "*"))
+
+    #Monta o comando cp
+    comando = ["cp", "-r"] + arquivos + [destino]
+
     subprocess.run(comando)
