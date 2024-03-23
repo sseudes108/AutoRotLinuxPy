@@ -24,7 +24,7 @@ def autoRotLinuxPy_repo():
 def catch_error(resultado, file_name):
     if resultado.returncode != 0:
         # Imprimir a saída de erro
-        print("Erro:", resultado.stderr, "\n")
+        print("Erro:", resultado.stderr)
         error_log_path = get_erros_log_path()
         print(error_log_path)
         print(file_name)
@@ -34,4 +34,4 @@ def catch_error(resultado, file_name):
 
         with open("{}err-{}.txt".format(error_log_path, file_name), "w",
                   encoding="utf-8") as error_log:
-            error_log.write(erro)
+            error_log.write(erro + "\n")
