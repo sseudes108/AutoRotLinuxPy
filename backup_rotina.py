@@ -23,4 +23,7 @@ def criar_backup(origem, destino):
     # print(comando)
     resultado = subprocess.run(comando, stderr=subprocess.PIPE)
 
+    #Mensagem de erro
+    origem = os.path.basename(origem)
+    destino = os.path.basename(destino)
     catch_error(resultado, "backup_rotina-Origem{}-Destino{}".format(origem, destino))
