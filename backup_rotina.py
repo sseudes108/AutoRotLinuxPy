@@ -24,6 +24,8 @@ def criar_backup(origem, destino):
     resultado = subprocess.run(comando, stderr=subprocess.PIPE)
 
     #Mensagem de erro
-    origem = os.path.splitdrive(origem)
-    destino = os.path.splitdrive(destino)
-    catch_error(resultado, "backup_rotina-Origem{}-Destino{}".format(origem[1], destino[1]))
+
+    origem = origem.replace("/", "-")
+    destino = destino.replace("/", "-")
+
+    catch_error(resultado, "backup_rotina-Origem{}|Destino{}".format(origem[1], destino[1]))
