@@ -27,6 +27,8 @@ def catch_error(resultado, file_name):
         # Imprimir a saída de erro
         print("Erro:", resultado.stderr)
         error_log_path = get_erros_log_path()
+        print(error_log_path)
+        print(file_name)
         data_hora = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
 
         erro = "{} - Erro: {}".format(data_hora, resultado.stderr)
