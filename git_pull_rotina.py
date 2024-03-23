@@ -15,8 +15,8 @@ def puxar_repos():
         #Entra no repositorio
         os.chdir(repo)
 
-        # ELIMINA QUALQUER MUDANÇA NO REPO LOCAL!!
-        # (MANTER AS MUDANÇAS E O PUSH NO IDE, NÃO NO SERVER !!!!)
+        # ATENÇÃO!! ELIMINA QUALQUER MUDANÇA NO REPO LOCAL!!
+        # (MANTER AS MUDANÇAS E O PUSH NO IDE, NÃO NO SERVER !!)
         subprocess.run(["git", "reset", "--hard"])
 
         #Executa o comando

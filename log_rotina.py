@@ -5,8 +5,7 @@
 
 import subprocess
 
-from auto_rot_lib import (get_log_path)
-
+from auto_rot_lib import get_log_path
 
 def criar_log():
     #Define o diretorio principal
