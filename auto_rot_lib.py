@@ -19,7 +19,7 @@ def get_backup_path():
 
 
 def autoRotLinuxPy_repo():
-    return os.path.join(get_home_dir(), "py_scripts/AutoRotLinuxPy")
+    return os.path.join(get_home_dir(), "AutoRotLinuxPy")
 
 
 def catch_error(resultado, file_name):

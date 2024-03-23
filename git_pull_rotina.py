@@ -13,12 +13,12 @@ def puxar_repos():
 
     for repo in repositorios:
         #Entra no repositorio
-        os.chdir(repo)
+        os.chdir("py_scripts/" + repo)
 
         # ATENÇÃO!! ELIMINA QUALQUER MUDANÇA NO REPO LOCAL!!
         # (MANTER AS MUDANÇAS E O PUSH NO IDE, NÃO NO SERVER !!)
         resultado = subprocess.run(["git", "reset", "--hard"], capture_output=True, text=True)
-        catch_error(resultado, "git_pull_rotina.py")
+        catch_error(resultado, "git_pull_rotina.py {}".format(repo))
 
         #Executa o comando
         resultado = subprocess.run(["git", "pull"], capture_output=True, text=True)
