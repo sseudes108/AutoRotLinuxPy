@@ -23,3 +23,10 @@
 * **Desenvolvimento de Scripts:** Escreva scripts Python para automatizar cada tarefa, utilizando bibliotecas relevantes.
 
 * **Integração com Cron Jobs:** Agende a execução periódica dos scripts usando tarefas cron para automação contínua.
+
+---
+<h4>Informações Relevantes</h4>
+    Todos os scripts têm seus diretórios configurados para a máquina virtual utilizada durante o desenvolvimento, e precisam ser ajustados para uso em diferentes ambientes.<br>
+    Esses scripts dependem da biblioteca "auto_rot_lib.py" para executar funções principais, como a criação de arquivos de log em caso de erro. Todos os caminhos do sistema são definidos em "auto_rot_lib.py" e são chamados conforme necessário pelos scripts de rotina.<br>
+    Foi tomada a precaução de evitar comandos diretos e o uso do shell dentro do código Python.<br>
+    O script "apt_update_upgrade" é configurado para ser executado sem solicitação de senha apenas quando o usuário logado é "sudo".<br>
