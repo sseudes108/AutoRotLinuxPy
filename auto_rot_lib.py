@@ -12,3 +12,7 @@ def get_backup_path():
 def get_git_AutoRotLinuxPy_path():
     return os.path.join(get_home_dir(), "py_scripts/AutoRotLinuxPy")
 
+def get_git_Ominifood_path():
+    return os.path.join(get_home_dir(), "web/Omnifood")
+
+
