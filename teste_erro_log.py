@@ -15,8 +15,9 @@ def run_command():
         error_log_path = get_erros_log_path()
 
         erro = "Erro: " + resultado.stderr
+        file = "teste_erro_log.py"
 
-        with open("{}error{}.txt".format(error_log_path, __file__), "w",
+        with open("{}error-{}.txt".format(error_log_path, file), "w",
                   encoding="utf-8") as error_log:
             error_log.write(erro)
 
