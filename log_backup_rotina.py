@@ -9,9 +9,7 @@ from backup_rotina import criar_backup
 log_path = get_log_path()
 log_backup_path = get_backup_path()
 
-origem = os.path.splitdrive(log_path)
-print(origem[1])
-origem = origem[1].split("/")
+origem = log_path.replace("/", "-")
 print(origem)
 
 criar_backup(log_path, log_backup_path)
