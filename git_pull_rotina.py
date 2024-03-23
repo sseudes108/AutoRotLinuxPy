@@ -21,7 +21,7 @@ def puxar_repos():
         catch_error(resultado, "git_pull_rotina.py / reset - {}".format(repo))
 
         #Executa o comando
-        resultado = subprocess.run(["gitERRO", "pull"], capture_output=True, text=True)
+        resultado = subprocess.run(["git", "pull"], capture_output=True, text=True)
 
         catch_error(resultado, "git_pull_rotina.py / pull -  {}".format(repo))
 
