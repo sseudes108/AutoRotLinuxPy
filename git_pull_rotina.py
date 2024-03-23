@@ -7,6 +7,7 @@ from auto_rot_lib import autoRotLinuxPy_repo, catch_error, get_home_dir
 import os
 import subprocess
 
+
 def puxar_repos():
     # definir novos repositorios em auto_rot_lib.py e adicionar à lista
     repositorios = [autoRotLinuxPy_repo()]
@@ -26,6 +27,7 @@ def puxar_repos():
         resultado = subprocess.run(["git", "pull"], stderr=subprocess.PIPE)
 
         catch_error(resultado, "git_rotina-Pull-Dir-{}".format(repository))
+
 
 puxar_repos()
 
