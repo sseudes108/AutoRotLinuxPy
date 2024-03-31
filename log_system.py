@@ -7,7 +7,7 @@ from auto_rot_lib import catch_error
 def gerar_log():
     processo = ["cat", "/var/log/auth.log"]
     filtro = ["grep", "-i", "ssh"]
-    refino = ["cut", "-d", " " "-f" "4-"]
+    refino = ["cut", "-d", " ", "-f", "4-"]
     data = datetime.datetime.now().strftime('%Y-%m-%d')
 
     with open("new_log.txt", "w", encoding='utf-8') as new_log_file:
