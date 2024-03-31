@@ -9,8 +9,8 @@ def gerar_log():
                 "|", "grep", "ssh"]
     data = datetime.datetime.now().strftime('%Y-%m-%d')
     with open("new_log.txt", "w", encoding='utf-8') as new_log_file:
-        resultado = processo.run(data, processo, stdout=new_log_file, stderr=subprocess.PIPE)
-        catch_error(resultado, "log_rotina.py")
-
+        new_log_file.write(data)
+        resultado = subprocess.run(processo, stdout=new_log_file, stderr=subprocess.PIPE)
+        catch_error(resultado, __name__)
 
 gerar_log()
