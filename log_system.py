@@ -16,7 +16,7 @@ def ssh_server():
         resultado = subprocess.run(refino, input=resultado.stdout, stdout=new_log_file, stderr=subprocess.PIPE)
         catch_error(resultado, "log_system.py")
 
-        new_log_file.write(data + ':')
+        new_log_file.write(data + ':' + '\n')
 
 
 ssh_server()
