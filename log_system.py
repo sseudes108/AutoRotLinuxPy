@@ -10,13 +10,13 @@ def ssh_server():
     refino = ["cut", "-d", " ", "-f", "4-"]
     data = datetime.datetime.now().strftime('%Y-%m-%d')
 
-    with open("new_log.txt", "w", encoding='utf-8') as new_log_file:
+    with open("auth_log_{}.txt".format(data), "w", encoding='utf-8') as new_log_file:
         resultado = subprocess.run(processo, stdout=subprocess.PIPE)
         resultado = subprocess.run(filtro, input=resultado.stdout, stdout=subprocess.PIPE)
         resultado = subprocess.run(refino, input=resultado.stdout, stdout=new_log_file, stderr=subprocess.PIPE)
         catch_error(resultado, "log_system.py")
 
-        new_log_file.write(data + ':' + '\n')
+        new_log_file.write('\n' + data + ':' + '\n')
 
 
 ssh_server()
