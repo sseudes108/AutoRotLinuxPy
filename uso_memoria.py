@@ -24,16 +24,28 @@ def uso_memoria():
         processos = ler_numeros_do_arquivo("{}processos_por_uso_memoria.txt".format(log_path))
 
         for processo in processos:
-            processo4 = ["ps", "-p", "{}".format(processo), "-o", "comm="]
-            processo_output = subprocess.Popen(processo4, stdout=subprocess.PIPE, text=True)
-            output, _ = processo_output.communicate()
+            nome_processo = ["ps", "-p", "{}".format(processo), "-o", "comm="]
+            nome_output = subprocess.Popen(nome_processo, stdout=subprocess.PIPE, text=True)
+            nome_output, _ = nome_output.communicate()
+
+            data_processo = ["echo", "-n", "date", "+%F,", "%H:", "%M:"]
+            data_output = subprocess.Popen(data_processo, stdout=subprocess.PIPE, text=True)
+            data_output, _ = data_output.communicate()
+
+            # echo - n $(date +%F, %H: %M: %S,) >> "log/$nome_processo.log"
+            # tamanho_processo =$(ps - p $pid -o size | grep[0-9])
+            # echo
+            # "$(bc <<< "
+            # scale = 2;$tamanho_processo / 1024
+            # ") MB" >> "log/$nome_processo.lo
 
             # Remove espaços em branco e quebras de linha do resultado
-            output = output.strip()
+            nome_output = nome_output.strip()
+            data_output = data_output.strip()
 
             # Salva o resultado em um arquivo com o nome correspondente ao processo
-            with open("{}{}.txt".format(log_path, output), "w", encoding='utf-8') as arquivo:
-                arquivo.write("Teste")
+            with open("{}{}.txt".format(log_path, nome_output), "w", encoding='utf-8') as arquivo:
+                arquivo.write("{},{}".format(data_output, nome_output))
 
     # apagar_log_inicial("{}processos_por_uso_memoria.txt".format(log_path))
 
