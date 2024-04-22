@@ -46,10 +46,10 @@ def uso_memoria():
             # calculo_output = calculo_output.strip()
 
             # Salva o resultado em um arquivo com o nome correspondente ao processo
-            with open("{}{}.txt".format(log_path, nome_output), "w", encoding='utf-8') as arquivo:
-                arquivo.write("{}, {}, {}MB".format(data_output, nome_output, calculo_mb))
+            with open("{}{}.txt".format(log_path, nome_output), "a", encoding='utf-8') as arquivo:
+                arquivo.write("{}, {}, {}MB\n".format(data_output, nome_output, calculo_mb))
 
-    # apagar_log_inicial("{}processos_por_uso_memoria.txt".format(log_path))
+    apagar_log_inicial("{}processos_por_uso_memoria.txt".format(log_path))
 
 
 def apagar_log_inicial(caminho_arquivo):
