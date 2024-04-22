@@ -42,7 +42,7 @@ def uso_memoria():
             # Remove espaços em branco e quebras de linha do resultado
             nome_output = nome_output.strip()
             data_output = data_output.strip()
-            calculo_output = calculo_output.strip()
+            # calculo_output = calculo_output.strip()
 
             # Salva o resultado em um arquivo com o nome correspondente ao processo
             with open("{}{}.txt".format(log_path, nome_output), "w", encoding='utf-8') as arquivo:
