@@ -21,7 +21,7 @@ def uso_memoria():
         head_output.wait()
         grep_output.wait()
 
-        processos = ler_numeros_do_arquivo("{}uso_memoria.txt".format(log_path))
+        processos = ler_numeros_do_arquivo("{}processos_por_uso_memoria.txt".format(log_path))
 
         for processo in processos:
             processo4 = ["ps", "-p", "{}".format(processo), "-o", "comm="]
