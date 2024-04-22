@@ -56,14 +56,8 @@ def ler_numeros_do_arquivo(caminho_arquivo):
         for linha in linhas:
             # Remove espaços em branco e quebras de linha
             linha_limpa = linha.strip()
-
-            # Tenta converter a linha em um número inteiro
-            try:
-                numero = int(linha_limpa)
-                numeros.append(numero)
-            except ValueError:
-                # Se não for possível converter para inteiro, ignora a linha
-                pass
+            numero = int(linha_limpa)
+            numeros.append(numero)
 
     return numeros
 
