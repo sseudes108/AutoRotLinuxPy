@@ -15,7 +15,7 @@ def puxar_repos():
     for repo in repositorios:
         #Entra no repositorio
         repository = repo
-        repo = os.path.join(get_home_dir(), "py_scripts/", repo)
+        repo = os.path.join(get_home_dir(), "Scripts/", repo)
         os.chdir(repo)
 
         # ATENÇÃO!! ELIMINA QUALQUER MUDANÇA NO REPO LOCAL!!
@@ -27,7 +27,6 @@ def puxar_repos():
         resultado = subprocess.run(["git", "pull"], stderr=subprocess.PIPE)
 
         catch_error(resultado, "git_rotina-Pull-Dir-{}".format(repository))
-
 
 puxar_repos()
 
