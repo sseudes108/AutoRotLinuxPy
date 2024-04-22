@@ -25,8 +25,8 @@ def uso_memoria():
 
         for processo in processos:
             processo4 = ["ps", "-p", "{}".format(processo), "-o", "comm="]
-            with open("{}{}.txt".format(log_path, processo4), "w", encoding='utf-8') as processo_file:
-                processo_output = subprocess.Popen(processo4, stdout=subprocess.PIPE)
+            processo_output = subprocess.Popen(processo4, stdout=subprocess.PIPE)
+            with open("{}{}.txt".format(log_path, processo_output), "w", encoding='utf-8'):
                 processo_output.wait()
 
 
