@@ -25,9 +25,21 @@ def uso_memoria():
 
         for processo in processos:
             processo4 = ["ps", "-p", "{}".format(processo), "-o", "comm="]
-            processo_output = subprocess.Popen(processo4, stdout=subprocess.PIPE)
-            with open("{}{}.txt".format(log_path, processo_output), "w", encoding='utf-8'):
-                processo_output.wait()
+            processo_output = subprocess.Popen(processo4, stdout=subprocess.PIPE, text=True)
+            output, _ = processo_output.communicate()
+
+            # Remove espaços em branco e quebras de linha do resultado
+            output = output.strip()
+
+            # Salva o resultado em um arquivo com o nome correspondente ao processo
+            with open("{}{}.txt".format(log_path, output), "w", encoding='utf-8') as arquivo:
+                arquivo.write(output)
+
+        # for processo in processos:
+        #     processo4 = ["ps", "-p", "{}".format(processo), "-o", "comm="]
+        #     processo_output = subprocess.Popen(processo4, stdout=subprocess.PIPE)
+        #     with open("{}{}.txt".format(log_path, processo_output), "w", encoding='utf-8'):
+        #         processo_output.wait()
 
 
 def ler_numeros_do_arquivo(caminho_arquivo):
