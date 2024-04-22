@@ -32,8 +32,8 @@ def uso_memoria():
             output = output.strip()
 
             # Salva o resultado em um arquivo com o nome correspondente ao processo
-            with open("{}{}-{}.txt".format(log_path, output, processo), "w", encoding='utf-8') as arquivo:
-                arquivo.write(output)
+            with open("{}{}.txt".format(log_path, output), "w", encoding='utf-8') as arquivo:
+                arquivo.write("Teste")
 
     # apagar_log_inicial("{}processos_por_uso_memoria.txt".format(log_path))
 
