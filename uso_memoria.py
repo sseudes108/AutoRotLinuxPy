@@ -11,4 +11,8 @@ def uso_memoria():
     with open("{}uso_memoria.txt".format(log_path), "w", encoding='utf-8') as log_file:
         resultado = subprocess.run(processo, stdout=log_file, stderr=subprocess.PIPE)
         catch_error(resultado, "uso_memoria.py")
-        log_file.write(resultado)
+        log_file.write("{}".format(resultado))
+
+
+uso_memoria()
+
