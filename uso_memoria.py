@@ -11,7 +11,7 @@ def uso_memoria():
     processo2 = ["head", "-n", "11"]
     processo3 = ["grep", "[0-9]"]
 
-    with open("{}uso_memoria.txt".format(log_path), "w", encoding='utf-8') as log_file:
+    with open("{}processos_por_uso_memoria.txt".format(log_path), "w", encoding='utf-8') as log_file:
         ps_output = subprocess.Popen(processo1, stdout=subprocess.PIPE)
         head_output = subprocess.Popen(processo2, stdin=ps_output.stdout, stdout=subprocess.PIPE)
         grep_output = subprocess.Popen(processo3, stdin=head_output.stdout, stdout=log_file)
@@ -35,11 +35,12 @@ def uso_memoria():
             with open("{}{}.txt".format(log_path, output), "w", encoding='utf-8') as arquivo:
                 arquivo.write(output)
 
-        # for processo in processos:
-        #     processo4 = ["ps", "-p", "{}".format(processo), "-o", "comm="]
-        #     processo_output = subprocess.Popen(processo4, stdout=subprocess.PIPE)
-        #     with open("{}{}.txt".format(log_path, processo_output), "w", encoding='utf-8'):
-        #         processo_output.wait()
+    apagar_log_inicial("{}processos_por_uso_memoria.txt".format(log_path))
+
+
+def apagar_log_inicial(caminho_arquivo):
+    processo = ["rm", "{}".format(caminho_arquivo)]
+    subprocess.Popen(processo, stdout=subprocess.PIPE)
 
 
 def ler_numeros_do_arquivo(caminho_arquivo):
