@@ -21,6 +21,39 @@ def uso_memoria():
         head_output.wait()
         grep_output.wait()
 
+        processos = ler_numeros_do_arquivo("{}uso_memoria.txt".format(log_path))
+
+        for processo in processos:
+            processo4 = ["ps", "-p", "{}".format(processo), "-o", "comm="]
+            with open("{}{}".format(log_path, processo), "w", encoding='utf-8') as processo_file:
+                processo_output = subprocess.Popen(processo4, stdout=subprocess.PIPE)
+                processo_output.wait()
+
+
+def ler_numeros_do_arquivo(caminho_arquivo):
+    # Lista para armazenar os números lidos
+    numeros = []
+
+    # Abre o arquivo para leitura
+    with open(caminho_arquivo, "r") as arquivo:
+        # Lê as linhas do arquivo
+        linhas = arquivo.readlines()
+
+        # Itera sobre as linhas
+        for linha in linhas:
+            # Remove espaços em branco e quebras de linha
+            linha_limpa = linha.strip()
+
+            # Tenta converter a linha em um número inteiro
+            try:
+                numero = int(linha_limpa)
+                numeros.append(numero)
+            except ValueError:
+                # Se não for possível converter para inteiro, ignora a linha
+                pass
+
+    return numeros
+
 
 uso_memoria()
 
