@@ -32,20 +32,21 @@ def uso_memoria():
             data_output = subprocess.Popen(data_processo, stdout=subprocess.PIPE, text=True)
             data_output, _ = data_output.communicate()
 
-            # echo - n $(date +%F, %H: %M: %S,) >> "log/$nome_processo.log"
-            # tamanho_processo =$(ps - p $pid -o size | grep[0-9])
-            # echo
-            # "$(bc <<< "
-            # scale = 2;$tamanho_processo / 1024
-            # ") MB" >> "log/$nome_processo.lo
+            memoria_processo = ["ps", "-p", "{}".format(processo), "-o", "size"]
+            memoria_output = subprocess.Popen(memoria_processo, stdout=subprocess.PIPE)
+            grep_memoria_output = subprocess.Popen(processo3, stdin=memoria_output.stdout, stdout=subprocess.PIPE, text=True)
+            grep_memoria_output, _ = grep_memoria_output.communicate()
+
+            # "$(bc <<< "scale = 2;$tamanho_processo/1024") MB" >> "log/$nome_processo.log
 
             # Remove espaços em branco e quebras de linha do resultado
             nome_output = nome_output.strip()
             data_output = data_output.strip()
+            grep_memoria_output = grep_memoria_output.strip()
 
             # Salva o resultado em um arquivo com o nome correspondente ao processo
             with open("{}{}.txt".format(log_path, nome_output), "w", encoding='utf-8') as arquivo:
-                arquivo.write("{},{}".format(data_output, nome_output))
+                arquivo.write("{}, {}, {}".format(data_output, nome_output, grep_memoria_output))
 
     # apagar_log_inicial("{}processos_por_uso_memoria.txt".format(log_path))
 
