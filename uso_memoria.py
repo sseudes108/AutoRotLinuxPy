@@ -38,15 +38,17 @@ def uso_memoria():
             grep_memoria_output, _ = grep_memoria_output.communicate()
 
             calculo_mb = ["bc", "<<<", "scale=2;{}/1024".format(grep_memoria_output)]
+            calculo_output = subprocess.Popen(calculo_mb, stdout=subprocess.PIPE, text=True)
+            calculo_output, _ = calculo_output.communicate()
 
             # Remove espaços em branco e quebras de linha do resultado
             nome_output = nome_output.strip()
             data_output = data_output.strip()
-            grep_memoria_output = grep_memoria_output.strip()
+            calculo_output = calculo_output.strip()
 
             # Salva o resultado em um arquivo com o nome correspondente ao processo
             with open("{}{}.txt".format(log_path, nome_output), "w", encoding='utf-8') as arquivo:
-                arquivo.write("{}, {}, {}MB".format(data_output, nome_output, calculo_mb))
+                arquivo.write("{}, {}, {}MB".format(data_output, nome_output, calculo_output))
 
     # apagar_log_inicial("{}processos_por_uso_memoria.txt".format(log_path))
 
