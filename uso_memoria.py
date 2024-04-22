@@ -28,7 +28,7 @@ def uso_memoria():
             nome_output = subprocess.Popen(nome_processo, stdout=subprocess.PIPE, text=True)
             nome_output, _ = nome_output.communicate()
 
-            data_processo = ["echo", "-n", "date", "+%F,", "%H:", "%M:"]
+            data_processo = ["date", "+%F,%H:%M:%S"]
             data_output = subprocess.Popen(data_processo, stdout=subprocess.PIPE, text=True)
             data_output, _ = data_output.communicate()
 
