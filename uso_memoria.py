@@ -39,7 +39,7 @@ def uso_memoria():
 
             calculo_mb = ["bc", "-l", "--quiet"]
             calculo_output = subprocess.Popen(calculo_mb, stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
-            calculo_output, _ = calculo_output.communicate("scale=2; {} / 1024".format(grep_memoria_output))
+            calculo_output, _ = calculo_output.communicate("scale=2;{}/1024".format(grep_memoria_output))
 
             # calculo_mb = ["bc", "<<<", "scale=2;", "{}".format(grep_memoria_output), "/", "1024"]
             # calculo_output = subprocess.Popen(calculo_mb, stdout=subprocess.PIPE, text=True)
