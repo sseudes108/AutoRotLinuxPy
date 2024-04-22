@@ -1,11 +1,11 @@
 import subprocess
 
-from auto_rot_lib import get_log_path, catch_error
+from auto_rot_lib import get_memoria_log_path
 
 
 def uso_memoria():
     # Define o diretorio principal
-    log_path = get_log_path()
+    log_path = get_memoria_log_path()
 
     processo1 = ["ps", "-e", "-o", "pid", "--sort", "-size"]
     processo2 = ["head", "-n", "11"]
@@ -25,7 +25,7 @@ def uso_memoria():
 
         for processo in processos:
             processo4 = ["ps", "-p", "{}".format(processo), "-o", "comm="]
-            with open("{}{}".format(log_path, processo), "w", encoding='utf-8') as processo_file:
+            with open("{}{}.txt".format(log_path, processo), "w", encoding='utf-8') as processo_file:
                 processo_output = subprocess.Popen(processo4, stdout=subprocess.PIPE)
                 processo_output.wait()
 

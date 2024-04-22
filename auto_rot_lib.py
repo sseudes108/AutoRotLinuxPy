@@ -8,6 +8,8 @@ def get_home_dir():
 def get_log_path():
     return os.path.join(get_home_dir(), "Scripts/logs/")
 
+def get_memoria_log_path():
+    return os.path.join(get_home_dir(), "Scripts/logs/uso_memoria")
 
 def get_erros_log_path():
     return os.path.join(get_log_path(), "errors/")
