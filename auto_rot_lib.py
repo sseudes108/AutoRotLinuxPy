@@ -1,7 +1,6 @@
 import datetime
 import os
 
-
 def get_home_dir():
     return os.path.expanduser("~")
 

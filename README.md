@@ -22,3 +22,7 @@
     Todos os scripts têm seus diretórios configurados para a máquina virtual utilizada durante o desenvolvimento, e precisam ser ajustados para uso em diferentes ambientes.<br>
     Esses scripts dependem da biblioteca "auto_rot_lib.py" para executar funções principais, como a criação de arquivos de log em caso de erro. Todos os caminhos do sistema são definidos em "auto_rot_lib.py" e são chamados conforme necessário pelos scripts de rotina.<br>
     Foi tomada a precaução de evitar comandos diretos e o uso do shell dentro do código Python.<br>
+
+<h6>Sobre os scripts</h6>
+    <b>log.py</b> depende que haja uma pasta chamada logs e dentro da mesma um arquivo log.txt com o texto "0". Esse valor é usado para inicar o registro dos logs e manter um registro de quantos foram criados.
+---
