@@ -24,26 +24,29 @@ def uso_memoria():
         processos = ler_numeros_do_arquivo("{}processos_por_uso_memoria.txt".format(log_path))
 
         for processo in processos:
+            #Pega o nome do processo
             nome_processo = ["ps", "-p", "{}".format(processo), "-o", "comm="]
             nome_output = subprocess.Popen(nome_processo, stdout=subprocess.PIPE, text=True)
             nome_output, _ = nome_output.communicate()
 
+            #Pega a data (UTC)
             data_processo = ["date", "+%F,%H:%M:%S"]
             data_output = subprocess.Popen(data_processo, stdout=subprocess.PIPE, text=True)
             data_output, _ = data_output.communicate()
 
+            #Pega uso de memoria do processo em KB
             memoria_processo = ["ps", "-p", "{}".format(processo), "-o", "size"]
             memoria_output = subprocess.Popen(memoria_processo, stdout=subprocess.PIPE)
             grep_memoria_output = subprocess.Popen(processo3, stdin=memoria_output.stdout, stdout=subprocess.PIPE, text=True)
             grep_memoria_output, _ = grep_memoria_output.communicate()
 
+            #Converte de KB para MB
             calculo_mb = int(grep_memoria_output)/1024
             calculo_mb = "{:.2f}".format(calculo_mb)
 
             # Remove espaços em branco e quebras de linha do resultado
             nome_output = nome_output.strip()
             data_output = data_output.strip()
-            # calculo_output = calculo_output.strip()
 
             # Salva o resultado em um arquivo com o nome correspondente ao processo
             with open("{}{}.txt".format(log_path, nome_output), "a", encoding='utf-8') as arquivo:

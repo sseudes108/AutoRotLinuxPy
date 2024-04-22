@@ -24,5 +24,6 @@
     Foi tomada a precaução de evitar comandos diretos e o uso do shell dentro do código Python.<br>
 
 <h6>Sobre os scripts</h6>
-    <b>log.py</b> depende que haja uma pasta chamada logs e dentro da mesma um arquivo log.txt com o texto "0". Esse valor é usado para inicar o registro dos logs e manter um registro de quantos foram criados.
+    <b>log.py</b>: Cria um log com as ultimas linhas de "/var/log/syslog". Depende que haja uma pasta chamada logs e dentro da mesma um arquivo log.txt com o texto "0". Esse valor é usado para inicar o registro dos logs e manter um registro de quantos foram criados.</br></br>
+    <b>uso_memoria.py</b> Lista os 10 processos que estão utilizando o maior valor de memoria e salva a data, o nome do processo e qual o uso de memoria em MB no momento.
 ---

@@ -3,7 +3,6 @@ import datetime
 
 from auto_rot_lib import catch_error, get_log_path
 
-
 def ssh_server():
     processo = ["cat", "/var/log/auth.log"]
     filtro = ["grep", "-i", "ssh"]
@@ -16,6 +15,5 @@ def ssh_server():
         resultado = subprocess.run(filtro, input=resultado.stdout, stdout=subprocess.PIPE)
         resultado = subprocess.run(refino, input=resultado.stdout, stdout=new_log_file, stderr=subprocess.PIPE)
         catch_error(resultado, "log_system.py")
-
 
 ssh_server()
