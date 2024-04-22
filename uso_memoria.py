@@ -37,7 +37,7 @@ def uso_memoria():
             grep_memoria_output = subprocess.Popen(processo3, stdin=memoria_output.stdout, stdout=subprocess.PIPE, text=True)
             grep_memoria_output, _ = grep_memoria_output.communicate()
 
-            # "$(bc <<< "scale = 2;$tamanho_processo/1024") MB" >> "log/$nome_processo.log
+            calculo_mb = ["bc", "<<<", "scale=2;{}/1024".format(grep_memoria_output)]
 
             # Remove espaços em branco e quebras de linha do resultado
             nome_output = nome_output.strip()
@@ -46,7 +46,7 @@ def uso_memoria():
 
             # Salva o resultado em um arquivo com o nome correspondente ao processo
             with open("{}{}.txt".format(log_path, nome_output), "w", encoding='utf-8') as arquivo:
-                arquivo.write("{}, {}, {}".format(data_output, nome_output, grep_memoria_output))
+                arquivo.write("{}, {}, {}MB".format(data_output, nome_output, calculo_mb))
 
     # apagar_log_inicial("{}processos_por_uso_memoria.txt".format(log_path))
 
