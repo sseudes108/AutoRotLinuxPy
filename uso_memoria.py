@@ -35,7 +35,7 @@ def uso_memoria():
             with open("{}{}.txt".format(log_path, output), "w", encoding='utf-8') as arquivo:
                 arquivo.write(output)
 
-    apagar_log_inicial("{}processos_por_uso_memoria.txt".format(log_path))
+    # apagar_log_inicial("{}processos_por_uso_memoria.txt".format(log_path))
 
 
 def apagar_log_inicial(caminho_arquivo):
