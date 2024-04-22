@@ -38,6 +38,7 @@ def uso_memoria():
             grep_memoria_output, _ = grep_memoria_output.communicate()
 
             calculo_mb = int(grep_memoria_output)/1024
+            calculo_mb = "{:.2f}".format(calculo_mb)
 
             # Remove espaços em branco e quebras de linha do resultado
             nome_output = nome_output.strip()
